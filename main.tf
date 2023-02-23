@@ -11,7 +11,7 @@ data "aws_ami" "app_ami" {
     values = ["hvm"]
   }
 
-  owners = [var.ami_filter.owner] # Bitnami
+  owners = [var.ami_filter.owner]
 }
 
 
@@ -61,8 +61,6 @@ module "blog_alb" {
   subnets            = module.blog_vpc.public_subnets
   security_groups    = [module.blog_sg.security_group_id]
 
-  
-
   target_groups = [
     {
       name_prefix      = "${var.environment.name}-"
@@ -71,7 +69,6 @@ module "blog_alb" {
       target_type      = "instance"
     }
   ]
-
 
   http_tcp_listeners = [
     {
