@@ -30,7 +30,7 @@ variable "environment" {
   })
 
   default= {
-  name = "dev-VPC"
+  name = "dev"
   network_prefix = "10.0"
   }
   
